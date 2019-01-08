@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4882B0D0-69ED-4021-8F62-1FDF30318083}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JZ.Server</RootNamespace>
+    <AssemblyName>JZ.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SqlSugar, Version=4.9.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\sqlSugar.4.9.7.3\lib\SqlSugar.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseServer.cs" />
+    <Compile Include="LoadCache.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicServer.cs" />
+    <Compile Include="Sys_UserInfoServer.cs" />
+    <Compile Include="TestServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JZ.Cache\JZ.Cache.csproj">
+      <Project>{5605de9c-91af-4f24-93f4-99a37460f6e2}</Project>
+      <Name>JZ.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JZ.Interfaces\JZ.Interfaces.csproj">
+      <Project>{513c69eb-62c6-487b-888d-6255f5af42fd}</Project>
+      <Name>JZ.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JZ.Loger\JZ.Loger.csproj">
+      <Project>{f34680eb-617a-4e32-92bb-70144fb9b29d}</Project>
+      <Name>JZ.Loger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JZ.Models\JZ.Models.csproj">
+      <Project>{309f282c-95e3-40c3-8bcf-3b70c91b5e62}</Project>
+      <Name>JZ.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JZ.Repository\JZ.Repository.csproj">
+      <Project>{453b2211-8ccc-4ba6-9ea9-b5d5fda2bd6c}</Project>
+      <Name>JZ.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JZ.Tools\JZ.Tools.csproj">
+      <Project>{b9eb4e2c-f03b-4d06-8094-2835b507131f}</Project>
+      <Name>JZ.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

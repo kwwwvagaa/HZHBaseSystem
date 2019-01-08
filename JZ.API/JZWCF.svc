@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="JZSenseViewServer.WCF.JZWCF" CodeBehind="JZWCF.svc.cs" %>
